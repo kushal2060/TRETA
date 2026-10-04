@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TETRA
 
-## Getting Started
+Landing page for TETRA, a web and app development studio.
 
-First, run the development server:
+**Stack:** Next.js (App Router) · TypeScript · Tailwind CSS v4 · Motion (Framer Motion)
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | Where |
+|---|---|
+| All copy & placeholder data (services, projects, team, clients, testimonials, contact) | `src/content/site.ts` |
+| Page sections | `src/components/sections/` |
+| Colors, fonts, animations | `src/app/globals.css` (`@theme`) |
+| Page metadata / SEO | `src/app/layout.tsx` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To change content, edit `src/content/site.ts`. The components only read from it.
 
-## Learn More
+## Design notes
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Palette: warm paper (`paper`), ink (`ink`), one accent (`accent`), plus `moss`, `sun`, `sky`, `plum` for covers and highlights.
+- Type: Fraunces (display, with soft/wonky variable axes) + Geist (body) + Geist Mono (labels).
+- Project covers are drawn in CSS (`src/components/ProjectCover.tsx`); swap for real screenshots with `next/image` when ready.
+- All motion respects `prefers-reduced-motion`.
